@@ -4,12 +4,15 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ."
+    "start": "nodemon .",
+    "build": "echo BUILDING...",
+    "test": "echo TESTING...."
   },
   "bin": {
     "jenkins-status-indicator": "./src/index.js"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "inquirer": "^7.3.3",
     "jenkins": "^0.28.0",
     "ora": "^4.0.5"
