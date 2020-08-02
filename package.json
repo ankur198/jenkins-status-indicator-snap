@@ -1,24 +1,25 @@
 {
   "name": "jenkins-status-indicator",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "start": "nodemon .",
-    "build": "tsc",
+    "build": "tsc --outDir dist",
     "test": "echo TESTING...."
   },
   "bin": {
-    "jenkins-status-indicator": "./src/index.js"
+    "jenkins-status-indicator": "./dist/index.js"
   },
   "dependencies": {
+    "@types/inquirer": "^7.3.0",
+    "@types/jenkins": "^0.23.1",
     "express": "^4.17.1",
     "inquirer": "^7.3.3",
     "jenkins": "^0.28.0",
     "ora": "^4.0.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
-    "typescript": "^3.9.7"
+    "nodemon": "^2.0.4"
   }
 }
