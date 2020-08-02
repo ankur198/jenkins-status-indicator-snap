@@ -1,0 +1,20 @@
+{
+  "name": "jenkins-status-indicator",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "bin": {
+    "jenkins-status-indicator": "./src/index.js"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "jenkins": "^0.28.0",
+    "ora": "^4.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
