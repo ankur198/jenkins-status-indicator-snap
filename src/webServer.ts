@@ -12,8 +12,10 @@ server.post('/config', async (req, res) => {
     const data = await req.body
     const config = new Config(data.url, data.username, data.password, data.jobName)
     res.send({ config, valid: config.isValid() });
-    const newPreset = new ConfigPreset("test", config)
-    newPresetRequest(newPreset)
+    if (data.presetName != undefined) {
+        const newPreset = new ConfigPreset(data.presetName, config)
+        newPresetRequest(newPreset)
+    }
 })
 
 server.listen(process.env.PORT || 1234)
