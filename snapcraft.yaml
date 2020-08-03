@@ -16,6 +16,8 @@ parts:
     # See 'snapcraft plugins'
     plugin: nodejs
     source: .
+    nodejs-version: 14.7.0
+    nodejs-package-manager: npm
 
 apps:
   jenkins-status-indicator:
