@@ -1,0 +1,9 @@
+POST http://localhost:1234/config HTTP/1.1
+Content-Type: application/json
+
+{
+    "url": "http://localhost:8080",
+    "username": "ankur",
+    "password": "asd",
+    "jobName": "10secbuild"
+}

@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon .",
+    "start": "NODE_PATH=./src ts-node-dev --respawn src/index.ts",
     "build": "tsc --outDir dist",
     "test": "echo TESTING...."
   },
@@ -12,14 +12,22 @@
     "jenkins-status-indicator": "./dist/index.js"
   },
   "dependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.7",
     "@types/inquirer": "^7.3.0",
     "@types/jenkins": "^0.23.1",
+    "@types/yaml": "^1.9.7",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "inquirer": "^7.3.3",
     "jenkins": "^0.28.0",
-    "ora": "^4.0.5"
+    "ora": "^4.0.5",
+    "yaml": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "ts-node-dev": "^1.0.0-pre.56",
+    "typescript": "^3.9.7"
   }
 }

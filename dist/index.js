@@ -19,46 +19,27 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var configManager = __importStar(require("./configManager"));
-var ora_1 = __importDefault(require("ora"));
-if (configManager.load() != null) {
-    configManager.promptCli().then(function (answers) {
-        var spinner = ora_1.default('connecting...').start();
-        var jenkins = require('jenkins')({
-            baseUrl: 'http://ankur:asd@localhost:8080',
-            crumbIssuer: true
-        });
-        jenkins.build.get('10secbuild', 'lastBuild', function (err, data) {
-            if (err) {
-                spinner.fail(err.message);
+const configManager = __importStar(require("./configManager"));
+const jenkins = __importStar(require("./jenkins"));
+// import ora from 'ora'
+const start = async () => {
+    if (configManager.load() === null) {
+        console.log('no preset found');
+        console.log('web server started...');
+        while (true) {
+            console.log('waiting for config');
+            const configPreset = await configManager.promtWeb();
+            console.log('verifying config', configPreset);
+            try {
+                await jenkins.verifyConnection(configPreset.config);
+                console.log('verified');
             }
-            else {
-                // console.log('info', data);
-                spinner.succeed('connected');
+            catch (error) {
+                console.error(error);
             }
-        });
-    }).catch(function (err) { return console.log(err); });
-}
-else {
-    var jenkins_1 = require('jenkins')({
-        baseUrl: 'http://ankur:asd@localhost:8080',
-        crumbIssuer: true
-    });
-    setInterval(function () {
-        jenkins_1.build.get('10secbuild', 'lastBuild', function (err, data) {
-            if (err) {
-                console.error(err.message);
-            }
-            else {
-                console.log('info', {
-                    building: data.building,
-                    status: data.result
-                });
-            }
-        });
-    }, 1000);
-}
+        }
+        console.log('preset done');
+    }
+};
+start();
