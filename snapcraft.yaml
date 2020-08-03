@@ -16,7 +16,6 @@ parts:
     # See 'snapcraft plugins'
     plugin: nodejs
     source: .
-    nodejs-version: 12.18.3
     nodejs-package-manager: npm
 
 apps:
