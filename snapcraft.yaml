@@ -17,7 +17,7 @@ parts:
     plugin: nodejs
     source: .
     nodejs-version: 14.7.0
-    nodejs-package-manager: npm
+    nodejs-package-manager: yarn
 
 apps:
   jenkins-status-indicator:
