@@ -9,14 +9,14 @@ description: |
   store.
 
 grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+confinement: classic # use 'strict' once you have the right plugs and slots
 
 architectures:
-  - build-on: amd64
+  # - build-on: amd64
   - build-on: armhf
-  - build-on: arm64
-  - build-on: s390x
-  - build-on: ppcel64
+  # - build-on: arm64
+  # - build-on: s390x
+  # - build-on: ppcel64
 
 parts:
   jenkins-status-indicator:
