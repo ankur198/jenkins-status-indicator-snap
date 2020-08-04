@@ -18,6 +18,8 @@ parts:
     source: .
     nodejs-version: 14.7.0
     nodejs-package-manager: yarn
+    stage-packages:
+      libatomic1
 
 apps:
   jenkins-status-indicator:
