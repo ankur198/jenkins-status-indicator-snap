@@ -1,6 +1,12 @@
 import jenkins from 'jenkins'
 import { Config } from './ConfigTypes'
 
+export enum Status {
+    BUILDING = "BUILDING",
+    SUCCESS = "SUCCESS",
+    FAILED = "FAILED"
+}
+
 export const verifyConnection = (config: Config): Promise<void> => {
     return new Promise((resolve, reject) => {
         const connection = jenkins({
@@ -19,7 +25,7 @@ export const verifyConnection = (config: Config): Promise<void> => {
 }
 
 
-export const getJobStatus = (config: Config): Promise<string> => {
+export const getJobStatus = (config: Config): Promise<Status> => {
     return new Promise((resolve, reject) => {
         const connection = jenkins({
             baseUrl: `http${config.https ? 's' : ''}://${config.username}:${config.password}@${config.url}`,
@@ -31,8 +37,6 @@ export const getJobStatus = (config: Config): Promise<string> => {
             }
             else {
                 const lastBuildNumber = Number(data.builds[0].number)
-                console.log(lastBuildNumber);
-
 
                 connection.build.get(config.jobName, lastBuildNumber, function (err: Error, data: any) {
                     if (err) {
@@ -40,9 +44,10 @@ export const getJobStatus = (config: Config): Promise<string> => {
                     }
                     else {
                         if (data.building) {
-                            resolve('BUILDING')
+
+                            resolve(Status.BUILDING)
                         }
-                        resolve(data.result)
+                        resolve(Status[data.result as keyof typeof Status])
                     }
                 })
             }

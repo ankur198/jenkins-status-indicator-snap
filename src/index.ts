@@ -3,6 +3,7 @@
 import './webServer'
 import * as configManager from './configManager'
 import * as jenkins from './jenkins'
+import { updateIndicator } from './indicators'
 
 // import ora from 'ora'
 
@@ -14,6 +15,6 @@ setInterval(async () => {
   const configPreset = configManager.load()
   if (configPreset !== null) {
     const status = await jenkins.getJobStatus(configPreset.config)
-    console.log(status);
+    updateIndicator(status)
   }
 }, 2500)
