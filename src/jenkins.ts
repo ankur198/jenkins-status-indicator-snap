@@ -4,7 +4,8 @@ import { Config } from './ConfigTypes'
 export enum Status {
     BUILDING = "BUILDING",
     SUCCESS = "SUCCESS",
-    FAILURE = "FAILURE"
+    FAILURE = "FAILURE",
+    ABORTED = "ABORTED"
 }
 
 export const verifyConnection = (config: Config): Promise<void> => {
