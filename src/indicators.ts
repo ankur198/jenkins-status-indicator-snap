@@ -48,7 +48,7 @@ export const updateIndicator = (status: Status): void => {
             yellowLed.writeSync(0)
             greenLed.writeSync(1)
             break;
-        case Status.FAILED:
+        case Status.FAILURE:
             redLed.writeSync(1)
             yellowLed.writeSync(0)
             greenLed.writeSync(0)
