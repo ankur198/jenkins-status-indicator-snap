@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -13,7 +14,7 @@
         <h3>Build Traffic Light for Jenkins</h3>
     </div>
     <div class="main">
-        <form action="">
+        <form action="" onsubmit="return submitPreset()">
             <div class="input">
                 <label for="url">Jenkins Server Url</label>
                 <input type="url" name="url" id="url">
