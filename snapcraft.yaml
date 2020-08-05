@@ -36,6 +36,5 @@ apps:
     command: jenkins-status-indicator
     plugs:
       - gpio
-      - gpio-control
       - network
       - network-bind
