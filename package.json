@@ -1,5 +1,5 @@
 {
-  "name": "jenkins-status-indicator",
+  "name": "jenkins-build-traffic-light",
   "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "postinstall": "tsc --outDir dist"
   },
   "bin": {
-    "jenkins-status-indicator": "./dist/index.js"
+    "jenkins-build-traffic-light": "./dist/index.js"
   },
   "dependencies": {
     "@types/cors": "^2.8.7",
