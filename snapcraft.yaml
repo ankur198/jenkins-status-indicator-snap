@@ -1,6 +1,6 @@
 name: jenkins-build-traffic-light # you probably want to 'snapcraft register <name>'
 base: core18 # the base snap is the execution environment for this snap
-version: '0.3gpioweb' # just for humans, typically '1.2+git' or '1.3.2'
+version: '0.4' # just for humans, typically '1.2+git' or '1.3.2'
 summary: build traffic light for jenkins # 79 char long summary
 description: |
   This is my-snap's description. You have a paragraph or two to tell the
@@ -19,7 +19,7 @@ architectures:
   # - build-on: ppcel64
 
 parts:
-  jenkins-status-indicator:
+  jenkins-build-traffic-light:
     # See 'snapcraft plugins'
     plugin: nodejs
     source: .
@@ -32,8 +32,8 @@ parts:
       - g++
 
 apps:
-  jenkins-status-indicator:
-    command: jenkins-status-indicator
+  jenkins-build-traffic-light:
+    command: jenkins-build-traffic-light
     plugs:
       - gpio
       - network
