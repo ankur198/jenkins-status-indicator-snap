@@ -1,6 +1,6 @@
 import chalk, { ChalkFunction } from "chalk";
 import { Status } from "./jenkins";
-import { Gpio, BinaryValue } from "onoff";
+import { Gpio } from "onoff";
 
 let redLed: Gpio;
 let yellowLed: Gpio;
