@@ -27,12 +27,16 @@ if (Gpio.accessible) {
 else {
     console.log("GPIO incompatible device, virtual led's will be used")
 
-    redLed = new MockGpio(chalk.red)
-    yellowLed = new MockGpio(chalk.yellow)
-    greenLed = new MockGpio(chalk.green)
+    // redLed = new MockGpio(chalk.red)
+    // yellowLed = new MockGpio(chalk.yellow)
+    // greenLed = new MockGpio(chalk.green)
 }
 
 export const updateIndicator = (status: Status): void => {
+    redLed = new Gpio(10, 'out')
+    yellowLed = new Gpio(9, 'out')
+    greenLed = new Gpio(11, 'out')
+    
     switch (status) {
         case Status.BUILDING:
             redLed.writeSync(0)
