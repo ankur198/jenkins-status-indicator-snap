@@ -24,5 +24,5 @@ server.get('/preset', (req, res) => {
     res.send(load())
 })
 
-server.listen(process.env.PORT || 1234)
-console.log('web server started...');
+server.listen(1234)
+console.log('web server started...connect to https://127.0.0.1:1234 to configure');
