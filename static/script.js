@@ -13,7 +13,7 @@ function submitPreset() {
             "Content-Type": "application/json"
         },
     }).then(x => x.json())
-        .then(x => alert(x.valid ? "Saved Successfully" : "Some error occurred"))
+        .then(x => alert(x.saved ? "Saved Successfully" : "Some error occurred"))
     // console.log(preset);
     return false
 }

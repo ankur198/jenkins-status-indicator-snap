@@ -17,7 +17,7 @@ export const load = (): ConfigPreset | null => {
   }
 }
 
-export const newPresetRequest = async (configPreset: ConfigPreset) => {
+export const newPresetRequest = async (configPreset: ConfigPreset): Promise<boolean> => {
   try {
     await jenkins.verifyConnection(configPreset.config)
     console.log('new profile verified');
@@ -31,8 +31,10 @@ export const newPresetRequest = async (configPreset: ConfigPreset) => {
     const data = yamlStringify(configPreset)
     fs.writeFileSync(configFilePath, data)
     console.log(data)
+    return true
 
   } catch (error) {
     console.error(error);
+    return false
   }
 }

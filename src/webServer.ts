@@ -12,10 +12,10 @@ server.use(bodyParser.json())
 server.post('/config', async (req, res) => {
     const data = await req.body
     const config = new Config(data.url, data.username, data.password, data.jobName)
-    res.send({ config, valid: config.isValid() });
     if (data.presetName != undefined) {
         const newPreset = new ConfigPreset(data.presetName, config)
-        newPresetRequest(newPreset)
+        const saved = await newPresetRequest(newPreset)
+        res.send({ config, valid: config, saved: saved });
     }
 })
 
