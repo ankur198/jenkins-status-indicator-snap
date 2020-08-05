@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import { newPresetRequest } from './configManager'
+import { newPresetRequest, load } from './configManager'
 import { ConfigPreset, Config } from './ConfigTypes'
 
 const server = express()
@@ -17,6 +17,11 @@ server.post('/config', async (req, res) => {
         const newPreset = new ConfigPreset(data.presetName, config)
         newPresetRequest(newPreset)
     }
+})
+
+server.get('/preset', (req, res) => {
+    console.log(`request received from ${req.ip}`);
+    res.send(load())
 })
 
 server.listen(process.env.PORT || 1234)

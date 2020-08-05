@@ -16,3 +16,11 @@ function submitPreset() {
     // console.log(preset);
     return false
 }
+
+async function getPreset() {
+    const data = await fetch("preset").then(x => x.json())
+    document.querySelector("#url").value = data.config.url
+    document.querySelector("#username").value = data.config.username
+    document.querySelector("#password").value = data.config.password
+    document.querySelector("#job").value = data.config.jobName
+}
