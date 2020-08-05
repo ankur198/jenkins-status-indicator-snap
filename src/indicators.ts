@@ -22,7 +22,7 @@ if (Gpio.accessible) {
 
     redLed = new Gpio(10, 'out')
     yellowLed = new Gpio(9, 'out')
-    greenLed = new Gpio(11, 'out')
+    greenLed = new Gpio(17, 'out')
 }
 else {
     console.log("GPIO incompatible device, virtual led's will be used")
