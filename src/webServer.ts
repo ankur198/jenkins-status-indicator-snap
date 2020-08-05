@@ -6,6 +6,7 @@ import { ConfigPreset, Config } from './ConfigTypes'
 
 const server = express()
 server.use(cors())
+server.use(express.static("static"))
 server.use(bodyParser.json())
 
 server.post('/config', async (req, res) => {
