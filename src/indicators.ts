@@ -25,7 +25,7 @@ export const updateIndicator = (status: Status): void => {
     if (Gpio.accessible) {
         console.log("GPIO compatible device");
 
-        whiteLed = new Gpio(23, 'out')
+        whiteLed = new Gpio(24, 'out')
         redLed = new Gpio(22, 'out')
         yellowLed = new Gpio(27, 'out')
         greenLed = new Gpio(17, 'out')
